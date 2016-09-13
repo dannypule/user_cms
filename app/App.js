@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './scss/styles.scss';
+import Users from './components/users/Users.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -8,14 +9,10 @@ export default class App extends React.Component {
   }
   render() {
     let {users, metaInfo} = this.props
-    
+
     return (
       <div className="app">
-        {users.map(user=>{
-          return (
-            <p key={user.id}>{user.name}</p>
-          )
-        })}
+        <Users users="users" />
       </div>
     );
   }

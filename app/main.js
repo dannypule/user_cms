@@ -2,28 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.js';
 import { createStore, combineReducers } from 'redux';
-
-const usersState = [
-    {
-        id: 'jhhjj-9292-djdj',
-        name: "Danny Pule",
-        age: "32"
-    }
-];
-
-///////////////////////////////
-/// users: reducer function ///
-///////////////////////////////
-const users = (state = usersState, action) => {
-  return state;
-};
-
-///////////////////////////////
-/// metaInfo: reducer function ///
-///////////////////////////////
-const metaInfo = (state = {title: 'Users CMS'}, action) => {
-  return state;
-};
+import users from './components/users/users.reducer.js';
+import metaInfo from './components/metaInfo/metaInfo.reducer.js';
 
 const appState = combineReducers({
     users,
@@ -36,6 +16,7 @@ const render = ()=>{
 }
 
 render(); // initial render
-store.subscribe(()=>{
-    render();
+
+store.subscribe(()=>{ // subscribe to changes in state
+    render(); // re-render whenever state is changed
 });
